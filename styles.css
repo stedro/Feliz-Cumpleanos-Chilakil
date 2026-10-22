@@ -1,0 +1,490 @@
+/* Reset Básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff0f3 0%, #ffe3e8 100%);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: hidden;
+  padding: 20px 15px;
+}
+
+/* Encabezado */
+.header {
+  text-align: center;
+  margin-top: 10px;
+  z-index: 2;
+}
+
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  color: #d63384;
+  text-shadow: 2px 2px 8px rgba(214, 51, 132, 0.15);
+  animation: fadeInDown 1.5s ease-out forwards;
+}
+
+/* Contenedor del Arreglo */
+.bouquet-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 410px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.flower-bouquet {
+  position: relative;
+  width: 320px;
+  height: 370px;
+}
+
+/* 1. PAPEL DEL ENVOLTORIO */
+.wrapper-back {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 175px;
+  height: 220px;
+  background: linear-gradient(180deg, #fce4ec 0%, #f8bbd0 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 25% 100%);
+  border-radius: 6px;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.wrapper-front {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(180deg, #f8bbd0 0%, #f48fb1 100%);
+  clip-path: polygon(0% 12%, 100% 12%, 75% 100%, 25% 100%);
+  border-radius: 0 0 8px 8px;
+  z-index: 8;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.5s;
+  box-shadow: 0 -3px 8px rgba(0,0,0,0.05);
+}
+
+/* Notita Chiquita */
+.mini-note {
+  background: #ffffff;
+  padding: 5px 8px;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  transform: rotate(-3deg);
+  border: 1px solid #ffe3e8;
+  margin-top: 15px;
+  max-width: 110px;
+  text-align: center;
+}
+
+.mini-note p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.8rem;
+  color: #d63384;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Moño Blanco Satinado */
+.white-bow {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  z-index: 9;
+  opacity: 0;
+  animation: popIn 0.8s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+.bow-knot {
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 2;
+}
+
+.bow-loop {
+  position: absolute;
+  top: -3px;
+  width: 20px;
+  height: 18px;
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.bow-loop.left { left: -16px; transform: rotate(-20deg); }
+.bow-loop.right { right: -16px; transform: rotate(20deg); }
+
+/* 2. GRUPO COMPLETO DE FLORES Y TALLOS */
+.living-flowers-group {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  transform-origin: bottom center;
+  animation: gentleSway 4s ease-in-out infinite alternate;
+  animation-delay: 8s;
+}
+
+/* 3. TALLOS (z-index: 2 -> Por detrás de las rosas) */
+.stem {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  background: linear-gradient(to top, #1b5e20, #388e3c);
+  width: 5px;
+  border-radius: 3px;
+  transform-origin: bottom center;
+  opacity: 0;
+  z-index: 2; /* Mantener por detrás de las rosas */
+}
+
+.stem-1 { height: 240px; margin-left: -2.5px; animation: riseStem 2s ease-out forwards; animation-delay: 1.5s; }
+.stem-2 { height: 225px; margin-left: -2.5px; animation: riseStemLeft1 2s ease-out forwards; animation-delay: 1.8s; }
+.stem-3 { height: 225px; margin-left: -2.5px; animation: riseStemRight1 2s ease-out forwards; animation-delay: 2.1s; }
+.stem-4 { height: 200px; margin-left: -2.5px; animation: riseStemLeft2 2s ease-out forwards; animation-delay: 2.4s; }
+.stem-5 { height: 200px; margin-left: -2.5px; animation: riseStemRight2 2s ease-out forwards; animation-delay: 2.7s; }
+.stem-6 { height: 180px; margin-left: -2.5px; animation: riseStemLeft1 2s ease-out forwards; animation-delay: 3.0s; }
+.stem-7 { height: 180px; margin-left: -2.5px; animation: riseStemRight1 2s ease-out forwards; animation-delay: 3.3s; }
+
+/* 4. HOJAS (z-index: 3 -> Por detrás de las rosas) */
+.leaf {
+  position: absolute;
+  width: 26px;
+  height: 13px;
+  background: #2e7d32;
+  border-radius: 26px 0;
+  opacity: 0;
+  transform: scale(0);
+  z-index: 3;
+  animation: popLeaf 1s ease-out forwards;
+}
+
+.leaf-1 { bottom: 130px; left: 115px; transform-origin: right center; animation-delay: 3.8s; }
+.leaf-2 { bottom: 140px; right: 115px; border-radius: 0 26px; transform-origin: left center; animation-delay: 4.1s; }
+
+/* 5. ROSAS (z-index: 6 -> Por encima de los tallos para que nunca se tapen) */
+.rose {
+  position: absolute;
+  width: 62px;
+  height: 68px;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 6; /* Capa superior a los tallos */
+  animation: bloomRose 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.rose-1 { top: 100px; left: 50%; animation-delay: 4.5s; }
+.rose-2 { top: 120px; left: 112px; animation-delay: 5.0s; }
+.rose-3 { top: 120px; left: 188px; animation-delay: 5.5s; }
+.rose-4 { top: 150px; left: 82px; animation-delay: 6.0s; }
+.rose-5 { top: 150px; left: 218px; animation-delay: 6.5s; }
+.rose-6 { top: 155px; left: 125px; animation-delay: 7.0s; }
+.rose-7 { top: 155px; left: 175px; animation-delay: 7.5s; }
+
+.rose .petal {
+  position: absolute;
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  box-shadow: inset 0 -2px 6px rgba(0,0,0,0.3);
+}
+
+.rose .petal.outer {
+  width: 42px;
+  height: 58px;
+  background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
+  bottom: 0;
+}
+
+.rose .petal.p-left { left: 2px; transform: rotate(-18deg); }
+.rose .petal.p-right { right: 2px; transform: rotate(18deg); background: linear-gradient(135deg, #d32f2f 0%, #9a0007 100%); }
+.rose .petal.inner.p-mid { width: 32px; height: 46px; bottom: 6px; left: 15px; background: linear-gradient(135deg, #f44336 0%, #c62828 100%); z-index: 2; border-radius: 50%; }
+
+.rose-bud {
+  position: absolute;
+  width: 20px;
+  height: 28px;
+  bottom: 16px;
+  left: 21px;
+  background: linear-gradient(180deg, #b71c1c 0%, #7f0000 100%);
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* 6. PÉTALOS CAYENDO */
+.falling-petals-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 7;
+  pointer-events: none;
+}
+
+.falling-petal {
+  position: absolute;
+  width: 13px;
+  height: 17px;
+  background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
+  border-radius: 50% 50% 50% 0;
+  opacity: 0;
+  animation: fallPetal 6s linear infinite;
+}
+
+.fp-1 { left: 35%; animation-delay: 8.5s; }
+.fp-2 { left: 58%; animation-delay: 10.5s; }
+.fp-3 { left: 45%; animation-delay: 12.5s; }
+
+/* Botón de Música */
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 10;
+  transition: transform 0.2s;
+}
+
+.music-btn:hover { transform: scale(1.1); }
+.music-btn.playing { background: #ffd1dc; animation: pulse 1.5s infinite; }
+
+/* Sobre de Carta */
+.envelope-wrapper {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 10;
+}
+
+.envelope {
+  width: 68px;
+  height: 46px;
+  background: #e53935;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s;
+  animation: bounceSlow 2.5s infinite;
+}
+
+.envelope:hover { transform: translateY(-4px) scale(1.05); }
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 34px solid transparent;
+  border-right: 34px solid transparent;
+  border-top: 25px solid #b71c1c;
+}
+
+.envelope-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 34px solid #ef5350;
+  border-right: 34px solid #ef5350;
+  border-bottom: 25px solid #e53935;
+  border-radius: 0 0 6px 6px;
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  z-index: 2;
+}
+
+/* Modal de Carta */
+.card-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 100;
+  padding: 20px;
+}
+
+.card-modal.active { opacity: 1; pointer-events: auto; }
+
+.card-modal-content {
+  background: #fffdfa;
+  width: 100%;
+  max-width: 450px;
+  padding: 35px 25px 30px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.4s ease;
+}
+
+.card-modal.active .card-modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #888;
+  cursor: pointer;
+}
+
+.card-inner h2 {
+  font-family: 'Dancing Script', cursive;
+  color: #d63384;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.card-body p {
+  color: #4a4a4a;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.card-body .signature {
+  font-weight: 600;
+  color: #e53935;
+  margin-top: 18px;
+}
+
+/* Keyframes */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  to { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+@keyframes riseStem {
+  from { opacity: 0; transform: translateY(30px) scaleY(0); }
+  to { opacity: 1; transform: translateY(0) scaleY(1); }
+}
+
+@keyframes riseStemLeft1 {
+  from { opacity: 0; transform: translateY(30px) rotate(0deg) scaleY(0); }
+  to { opacity: 1; transform: translateY(0) rotate(-10deg) scaleY(1); }
+}
+
+@keyframes riseStemRight1 {
+  from { opacity: 0; transform: translateY(30px) rotate(0deg) scaleY(0); }
+  to { opacity: 1; transform: translateY(0) rotate(10deg) scaleY(1); }
+}
+
+@keyframes riseStemLeft2 {
+  from { opacity: 0; transform: translateY(30px) rotate(0deg) scaleY(0); }
+  to { opacity: 1; transform: translateY(0) rotate(-22deg) scaleY(1); }
+}
+
+@keyframes riseStemRight2 {
+  from { opacity: 0; transform: translateY(30px) rotate(0deg) scaleY(0); }
+  to { opacity: 1; transform: translateY(0) rotate(22deg) scaleY(1); }
+}
+
+@keyframes popLeaf {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bloomRose {
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Movimiento Suave */
+@keyframes gentleSway {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(2deg) translateY(-2px); }
+  100% { transform: rotate(-2deg) translateY(0px); }
+}
+
+/* Caída de Pétalos */
+@keyframes fallPetal {
+  0% { opacity: 0; transform: translateY(110px) rotate(0deg); }
+  20% { opacity: 0.9; }
+  80% { opacity: 0.7; }
+  100% { opacity: 0; transform: translateY(280px) rotate(180deg) translateX(25px); }
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(214, 51, 132, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(214, 51, 132, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(214, 51, 132, 0); }
+}
+
+@media (max-width: 480px) {
+  .flower-bouquet {
+    transform: scale(0.85);
+    transform-origin: bottom center;
+  }
+}

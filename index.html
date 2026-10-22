@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Feliz Cumpleaños!</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="header">
+    <h1 class="title">¡Feliz Cumpleaños mi chilakil mayor! 🤍❤️‍🩹</h1>
+  </header>
+
+  <!-- Arreglo Floral -->
+  <main class="bouquet-container">
+    <div class="flower-bouquet">
+      
+      <!-- Contenedor de Pétalos Cayendo -->
+      <div class="falling-petals-container">
+        <div class="falling-petal fp-1"></div>
+        <div class="falling-petal fp-2"></div>
+        <div class="falling-petal fp-3"></div>
+      </div>
+
+      <!-- Fondo Envolvente Delgado -->
+      <div class="wrapper-back"></div>
+
+      <!-- Grupo Completo Animado (Tallos + Rosas con Movimiento) -->
+      <div class="living-flowers-group">
+        <!-- Tallos -->
+        <div class="stem stem-1"></div>
+        <div class="stem stem-2"></div>
+        <div class="stem stem-3"></div>
+        <div class="stem stem-4"></div>
+        <div class="stem stem-5"></div>
+        <div class="stem stem-6"></div>
+        <div class="stem stem-7"></div>
+
+        <!-- Hojas -->
+        <div class="leaf leaf-1"></div>
+        <div class="leaf leaf-2"></div>
+
+        <!-- Rosas (Arriba) -->
+        <div class="rose rose-1">
+          <div class="petal outer p-left"></div>
+          <div class="petal outer p-right"></div>
+          <div class="petal inner p-mid"></div>
+          <div class="rose-bud"></div>
+        </div>
+
+        <div class="rose rose-2">
+          <div class="petal outer p-left"></div>
+          <div class="petal outer p-right"></div>
+          <div class="petal inner p-mid"></div>
+          <div class="rose-bud"></div>
+        </div>
+
+        <div class="rose rose-3">
+          <div class="petal outer p-left"></div>
+          <div class="petal outer p-right"></div>
+          <div class="petal inner p-mid"></div>
+          <div class="rose-bud"></div>
+        </div>
+
+        <div class="rose rose-4">
+          <div class="petal outer p-left"></div>
+          <div class="petal outer p-right"></div>
+          <div class="petal inner p-mid"></div>
+          <div class="rose-bud"></div>
+        </div>
+
+        <div class="rose rose-5">
+          <div class="petal outer p-left"></div>
+          <div class="petal outer p-right"></div>
+          <div class="petal inner p-mid"></div>
+          <div class="rose-bud"></div>
+        </div>
+
+        <!-- Rosas (Abajo) -->
+        <div class="rose rose-6">
+          <div class="petal outer p-left"></div>
+          <div class="petal outer p-right"></div>
+          <div class="petal inner p-mid"></div>
+          <div class="rose-bud"></div>
+        </div>
+
+        <div class="rose rose-7">
+          <div class="petal outer p-left"></div>
+          <div class="petal outer p-right"></div>
+          <div class="petal inner p-mid"></div>
+          <div class="rose-bud"></div>
+        </div>
+      </div>
+
+      <!-- Frente del Envoltorio Delgado -->
+      <div class="wrapper-front">
+        <!-- Notita Chiquita y Delicada -->
+        <div class="mini-note">
+          <p>Te quiero mucho mi chilakil ❤️</p>
+        </div>
+      </div>
+
+      <!-- Moño Blanco Satinado -->
+      <div class="white-bow">
+        <div class="bow-knot"></div>
+        <div class="bow-loop left"></div>
+        <div class="bow-loop right"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Botón de Música -->
+  <button id="musicToggle" class="music-btn" aria-label="Reproducir música">
+    <span class="music-icon">🎵</span>
+  </button>
+
+  <!-- Sobre de Carta -->
+  <aside class="envelope-wrapper">
+    <div class="envelope" id="envelope">
+      <div class="envelope-flap"></div>
+      <div class="envelope-body"></div>
+      <div class="envelope-seal">💖</div>
+    </div>
+  </aside>
+
+  <!-- Modal / Carta -->
+  <div class="card-modal" id="cardModal">
+    <div class="card-modal-content">
+      <button class="close-btn" id="closeCard">&times;</button>
+      <div class="card-inner">
+        <h2>✨ Una Dedicatoria Especial ✨</h2>
+        <div class="card-body">
+          <p>
+            Y como 2do año consecutivo te doy un pequeño regalo con lo poco o mucho que se, 
+            espero que te guste, que sea de tu agrado y sobre todo que te la pases muy bonito
+          </p>
+          <p>
+            Que este pequeño detalle te recuerde lo mucho que te quiero y lo 
+            importante que eres para mi
+          </p>
+          <p>
+            Te quiero mucho mi chupirrul mayor y muchas felicidades por tus 21 años de vida 🤍
+
+          </p>
+          <p>
+            Que cumplas muchos años más llenos de amor y mucha felicidad 
+          </p>
+          <p class="signature">Con mucho cariño tu chupirrul mayor ❤️</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
