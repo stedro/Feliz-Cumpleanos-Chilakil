@@ -12,15 +12,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   overflow-x: hidden;
   padding: 20px 15px;
+  position: relative;
 }
 
 /* Encabezado */
 .header {
   text-align: center;
   margin-top: 10px;
+  margin-bottom: 20px;
   z-index: 2;
 }
 
@@ -32,15 +34,16 @@ body {
   animation: fadeInDown 1.5s ease-out forwards;
 }
 
-/* Contenedor del Arreglo */
+/* Contenedor del Arreglo (Subido ligeramente) */
 .bouquet-container {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  height: 410px;
+  align-items: center;
+  height: 420px;
   width: 100%;
   position: relative;
-  margin-bottom: 20px;
+  margin: auto 0;
+  transform: translateY(-30px); /* Eleva el ramo un poco más arriba */
 }
 
 .flower-bouquet {
@@ -154,7 +157,7 @@ body {
   animation-delay: 8s;
 }
 
-/* 3. TALLOS (z-index: 2 -> Por detrás de las rosas) */
+/* 3. TALLOS (Por detrás de las rosas) */
 .stem {
   position: absolute;
   bottom: 20px;
@@ -164,7 +167,7 @@ body {
   border-radius: 3px;
   transform-origin: bottom center;
   opacity: 0;
-  z-index: 2; /* Mantener por detrás de las rosas */
+  z-index: 2;
 }
 
 .stem-1 { height: 240px; margin-left: -2.5px; animation: riseStem 2s ease-out forwards; animation-delay: 1.5s; }
@@ -175,7 +178,7 @@ body {
 .stem-6 { height: 180px; margin-left: -2.5px; animation: riseStemLeft1 2s ease-out forwards; animation-delay: 3.0s; }
 .stem-7 { height: 180px; margin-left: -2.5px; animation: riseStemRight1 2s ease-out forwards; animation-delay: 3.3s; }
 
-/* 4. HOJAS (z-index: 3 -> Por detrás de las rosas) */
+/* 4. HOJAS */
 .leaf {
   position: absolute;
   width: 26px;
@@ -191,14 +194,14 @@ body {
 .leaf-1 { bottom: 130px; left: 115px; transform-origin: right center; animation-delay: 3.8s; }
 .leaf-2 { bottom: 140px; right: 115px; border-radius: 0 26px; transform-origin: left center; animation-delay: 4.1s; }
 
-/* 5. ROSAS (z-index: 6 -> Por encima de los tallos para que nunca se tapen) */
+/* 5. ROSAS */
 .rose {
   position: absolute;
   width: 62px;
   height: 68px;
   opacity: 0;
   transform: translate(-50%, -50%) scale(0);
-  z-index: 6; /* Capa superior a los tallos */
+  z-index: 6;
   animation: bloomRose 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
@@ -262,13 +265,13 @@ body {
 .fp-2 { left: 58%; animation-delay: 10.5s; }
 .fp-3 { left: 45%; animation-delay: 12.5s; }
 
-/* Botón de Música */
+/* Botón de Música (Alineado a la izquierda, a la misma altura del sobre) */
 .music-btn {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 46px;
-  height: 46px;
+  bottom: 25px;
+  left: 25px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: none;
   background: #ffffff;
@@ -285,7 +288,7 @@ body {
 .music-btn:hover { transform: scale(1.1); }
 .music-btn.playing { background: #ffd1dc; animation: pulse 1.5s infinite; }
 
-/* Sobre de Carta */
+/* Sobre de Carta (Esquina Inferior Derecha) */
 .envelope-wrapper {
   position: fixed;
   bottom: 25px;
